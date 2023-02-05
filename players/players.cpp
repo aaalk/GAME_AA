@@ -5,22 +5,20 @@
 
 using namespace std;
 
-const int len_glas = 5;
-const int len_sogl = 21;
-
 
 string randName() {
 
-    char alf_glasn[len_glas] = { 'a', 'e', 'i','o','u'};
-    char alf_soglasn[len_sogl] = {'b','c','d', 'f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'};
-    srand(time(0));
+    string glas = "eyuioa";
+    string soglas = "qwrtpsdfghjklzxcvbnm";
     string name = "";
-    for (int i = 0; i < len_sogl; i++) {
-        name += name + alf_soglasn[rand() % len_sogl];
-    }
-    for (int i=0; i < len_glas; i++){
-        name += name + alf_glasn[rand() % len_glas];
-        
+    srand(time(0));
+    for (int i = 0; i < rand() % 6 + 4; i++) {
+        if (i % 2 == 0) {
+            name += soglas[rand() % 20];
+        }
+        else {
+            name += glas[rand() % 6];
+        }
     }
 
     return name;
